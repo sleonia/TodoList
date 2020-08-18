@@ -12,24 +12,6 @@
 					"status": "do"
 				}
 			]
-		},
-		{
-
-			"title": "day2",
-			"items": [
-				{
-					"text": "asdsdada",
-					"status": "done"
-				},
-				{
-					"text": "fghfgf",
-					"status": "do"
-				},
-				{
-					"text": "dhfhffn",
-					"status": "do"
-				}
-			]
 		}
 	]
 }

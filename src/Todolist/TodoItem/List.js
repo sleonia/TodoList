@@ -1,5 +1,3 @@
-import Item from "./Item"
-
 class List {
 	constructor(title, items) {
 		this._title = title;
