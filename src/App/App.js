@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Header from "../Header/Header";
-import TodoItem from "../TodoItem/TodoItem";
+import TodoList from "../Todolist/Todolist";
 import Footer from "../Footer/Footer";
 
 class App extends React.Component {
@@ -9,12 +9,7 @@ class App extends React.Component {
 		return (
 			<div>
 				<Header />
-				<div className="todo-list">
-					<TodoItem />
-					<TodoItem />
-					<TodoItem />
-					<TodoItem />
-				</div>
+				<TodoList title="Title" />
 				<Footer />
 			</div>
 		)

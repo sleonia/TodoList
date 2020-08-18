@@ -10,3 +10,12 @@
     font-size: 15px;
     color: #333333;
 }
+
+input[type=checkbox] {
+	margin-right: 10px;
+	font-size: 30px;
+}
+
+input[type=checkbox]:focus {
+	outline: 0;
+}

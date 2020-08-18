@@ -2,11 +2,11 @@ import React from "react";
 import "./TodoItem.css";
 
 class TodoItem extends React.Component {
-	render () {
+	render (props) {
 		return (
 			<div className="todo-item">
 				<input type="checkbox" />
-				<p>Placeholder text here</p>
+				<p>{this.props.text}</p>
 			</div>
 		)
 	};
