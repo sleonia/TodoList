@@ -1,23 +1,23 @@
 class List {
 	constructor(title, items) {
-		this._title = title;
-		this._items = [];
+		this.title = title;
+		this.items = [];
 	}
 
 	get title() {
-		return this._title;
+		return this.title;
 	};
 
 	set title(text) {
-		this._title = text;
+		this.title = text;
 	};
 
 	get items() {
-		return this._items;
+		return this.items;
 	};
 
 	set items(items) {
-		this._items = items;
+		this.items = items;
 	};
 };
 

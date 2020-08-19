@@ -1,23 +1,23 @@
 class Item {
-	constructor(text, status) {
-		this._text = text;
-		this._status = status;
+	constructor(text, state=true) {
+		this.text = text;
+		this.state = state;
 	}
 
 	get	text() {
-		return this._text;
+		return this.text;
 	}
 	
 	set	text(text) {
-		this._text = text;
+		this.text = text;
 	}
 
-	get	status() {
-		return this._status;
+	get	state() {
+		return this.state;
 	}
 
-	set	status(status) {
-		this._status = status;
+	set	state(state) {
+		this.state = state;
 	}
 };
 

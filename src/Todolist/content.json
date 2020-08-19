@@ -4,12 +4,19 @@
 			"title": "day1",
 			"items": [
 				{
-					"text": "asdsdada",
-					"status": "done"
+					"id": 0,
+					"text": "Do",
+					"completed": "true"
 				},
 				{
-					"text": "fghfgf",
-					"status": "do"
+					"id": 1,
+					"text": "Some",
+					"completed": "false"
+				},
+				{
+					"id": 2,
+					"text": "Tasks",
+					"completed": "false"
 				}
 			]
 		}
