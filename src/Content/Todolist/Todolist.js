@@ -10,7 +10,7 @@ class TodoList extends React.Component {
 		};
 	}
 
-	addItem = (listId) => {
+	addItem = () => {
 		this.setState(previousState => {
 			previousState.obj.items.push({
 				"id": previousState.obj.items.length,
@@ -21,7 +21,7 @@ class TodoList extends React.Component {
 		})
 	}
 
-	deleteItem = (listId, itemId) => {
+	deleteItem = (itemId) => {
 		this.setState(previousState => {
 			delete previousState.obj.items[itemId];
 			return this.state.obj;
@@ -31,6 +31,11 @@ class TodoList extends React.Component {
 	render (props) {
 		return (
 			<div className="todo-list">
+				<button
+					className="delete-list"
+					onClick={() => this.props.deleteList()}>
+					x
+				</button>
 				<input
 					type="text"
 					className="title"
@@ -38,13 +43,13 @@ class TodoList extends React.Component {
 				</input>
 				{this.props.obj.items.map((item) => {
 					return <TodoItem
-								deleteItem={() => this.deleteItem(this.props.obj.id, item.id)}
+								deleteItem={() => this.deleteItem(item.id)}
 								item={item}
 							/>
 				})}
 				<button
 					className="new-item"
-					onClick={() => this.addItem(this.props.obj.id)}>
+					onClick={() => this.addItem()}>
 					New item
 				</button>
 			</div>);
