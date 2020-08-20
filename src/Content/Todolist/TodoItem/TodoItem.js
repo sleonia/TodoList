@@ -4,16 +4,13 @@ import "./TodoItem.css";
 class TodoItem extends React.Component {
 	constructor(props) {
 		super(props);
+		//this.state = { isCompleted: true };
 		this.state = { isCompleted: false };
-		this.completedStyle = { ///////////////////////delete!!!!!!!!!!!!!
-			fontStyle: "italic",
-			color: "#cdcdcd",
-			textDecoration: "line-through",
-			border: 0
-		}
 	};
 
-	changeStatus() {
+	changeStatus = () => {
+		//changeStatus() {
+			console.log(1);
 		this.setState(previousState => {
 			return {
 				isCompleted: !previousState.isCompleted
@@ -23,16 +20,17 @@ class TodoItem extends React.Component {
 
 	render (props) {
 		return (
-			//<div className="todo-item">///////////ternary class name
-			<div className={"todo-item"}>
-				<input type="checkbox" onClick={() => this.changeStatus} />
+			<div className="todo-item">
+			{/*<div className={this.state.isCompleted ? "todo-item-completed" : "todo-item"}>*/}
+				<input type="checkbox" onClick={this.changeStatus} />
+				{/*<input type="checkbox" onClick={() => this.changeStatus} />*/}
 				<input type="text"
-					onChange={this.props.saveItemText}
+					//onChange={this.props.saveItemText}
 					//onChange={this.onfocusout(this.props.saveItemText)}
-					style={this.state.isCompleted ? this.completedStyle : null}
+					className={this.state.isCompleted ? "todo-item-completed" : "todo-item-noncompleted"}
 					defaultValue={this.props.item.text}>
 				</input>
-				<button onClick={() => this.props.deleteItem}>x</button>
+				<button onClick={this.props.deleteItem}>x</button>
 			</div>
 		)
 	};

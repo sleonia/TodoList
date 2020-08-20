@@ -10,8 +10,7 @@ class TodoList extends React.Component {
 		};
 	}
 
-	addItem(listId) {
-		//console.log();
+	addItem = (listId) => {
 		this.setState(previousState => {
 			previousState.data.lists[listId].items.push({
 				"id": previousState.data.lists[listId].items.length,
@@ -22,14 +21,15 @@ class TodoList extends React.Component {
 		})
 	}
 
-	deleteItem(listId, itemId) {
+	deleteItem = (listId, itemId) => {
+		console.log(1);
 		this.setState(previousState => {
 			delete previousState.data.lists[listId].items[itemId];
 			return this.state.data;
 		})
 	}
 
-	saveItemText(text, listId, itemId) {///////////////doesnt work
+	saveItemText = (text, listId, itemId) => {///////////////doesnt work
 		this.setState(previousState => {
 			previousState.data.lists[listId].items[itemId] = text;
 			return this.state.data;
@@ -45,13 +45,11 @@ class TodoList extends React.Component {
 						{obj.items.map((item) => {
 							return <TodoItem
 										deleteItem={() => this.deleteItem(obj.id, item.id)}
-										//addItem={() => this.addItem(item.text, obj.id)}
-										saveItemText={() => this.saveItemText(item.text, obj.id, item.id)}
+										//saveItemText={() => this.saveItemText(item.text, obj.id, item.id)}
 										item={item}
 									/>
 						})}
 						<button onClick={() => this.addItem(obj.id)}>New item</button>
-						{/*<button onClick={this.addItem(obj.id)}>New item</button>*/}
 					</div>))}
 			</div>);
 	}

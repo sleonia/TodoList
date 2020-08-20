@@ -12,20 +12,26 @@
 }
 
 .todo-item-completed {
+    /*  */
     font-style: italic;
 	color: #cdcdcd;
-	text-decoration: line-through;
+    text-decoration: line-through;
 	border: 0;
 }
 
-.todo-item-non-completed {
+.todo-item-noncompleted {
+    /*  */
+    /*font-style: italic;*/
+    color: #333333;
+    /*text-decoration: line-through;*/
+	/*border: 0;*/
 }
 
 input[type=text] {
     border: 1;
 }
 
-input[type=checkbox]:focus {
+/*input[type=checkbox]:focus {
     border: 0;
     outline: 0;
 }
@@ -37,4 +43,4 @@ input[type=checkbox] {
 
 input[type=checkbox]:focus {
     outline: 0;
-}
+}*/
