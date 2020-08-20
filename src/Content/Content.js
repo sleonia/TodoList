@@ -8,7 +8,6 @@ class Content extends React.Component {
 	}
 
 	newList() {
-		alert();
 	}
 
 	render () {
