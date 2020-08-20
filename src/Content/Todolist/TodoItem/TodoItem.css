@@ -1,5 +1,5 @@
 .todo-item {
-	display: flex;
+    display: flex;
     justify-content: flex-start;
     align-items: center;
     padding: 30px 20px 0;
@@ -9,6 +9,16 @@
     font-weight: 100;
     font-size: 15px;
     color: #333333;
+}
+
+.todo-item-completed {
+    font-style: italic;
+	color: #cdcdcd;
+	text-decoration: line-through;
+	border: 0;
+}
+
+.todo-item-non-completed {
 }
 
 input[type=text] {
