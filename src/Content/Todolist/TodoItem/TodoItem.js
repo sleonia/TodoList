@@ -20,7 +20,6 @@ class TodoItem extends React.Component {
 			<div className="todo-item">
 				<input type="checkbox" onClick={this.changeStatus} />
 				<input type="text"
-					//onChange={this.props.saveItemText}
 					className={this.state.isCompleted ? "todo-item-completed" : "todo-item-noncompleted"}
 					defaultValue={this.props.item.text}>
 				</input>

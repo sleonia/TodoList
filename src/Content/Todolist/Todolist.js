@@ -5,51 +5,48 @@ import "./TodoList.css";
 class TodoList extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			data: JSON.parse(JSON.stringify(require("./content.json")))
+		this.state = { 
+			obj: props.obj
 		};
 	}
 
 	addItem = (listId) => {
 		this.setState(previousState => {
-			previousState.data.lists[listId].items.push({
-				"id": previousState.data.lists[listId].items.length,
+			previousState.obj.items.push({
+				"id": previousState.obj.items.length,
 				"text": "",
 				"completed": "false"
 			})
-			return this.state.data;
+			return this.state.obj;
 		})
 	}
 
 	deleteItem = (listId, itemId) => {
 		this.setState(previousState => {
-			delete previousState.data.lists[listId].items[itemId];
-			return this.state.data;
+			delete previousState.obj.items[itemId];
+			return this.state.obj;
 		})
-	}
-
-	saveItemText = (text, listId, itemId) => {
-		//this.setState(previousState => {
-		//	previousState.data.lists[listId].items[itemId] = text;
-		//	return this.state.data;
-		//})
 	}
 
 	render (props) {
 		return (
-			<div>
-				{this.state.data.lists.map((obj) => (
-					<div className="todo-list">
-						<input type="text" className="title" defaultValue={obj.title}></input>
-						{obj.items.map((item) => {
-							return <TodoItem
-										deleteItem={() => this.deleteItem(obj.id, item.id)}
-										//saveItemText={() => this.saveItemText(item.text, obj.id, item.id)}
-										item={item}
-									/>
-						})}
-						<button className="new-item" onClick={() => this.addItem(obj.id)}>New item</button>
-					</div>))}
+			<div className="todo-list">
+				<input
+					type="text"
+					className="title"
+					defaultValue={this.props.obj.title}>
+				</input>
+				{this.props.obj.items.map((item) => {
+					return <TodoItem
+								deleteItem={() => this.deleteItem(this.props.obj.id, item.id)}
+								item={item}
+							/>
+				})}
+				<button
+					className="new-item"
+					onClick={() => this.addItem(this.props.obj.id)}>
+					New item
+				</button>
 			</div>);
 	}
 };

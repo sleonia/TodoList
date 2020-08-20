@@ -5,6 +5,9 @@ import TodoList from "./Todolist/Todolist"
 class Content extends React.Component {
 	constructor() {
 		super();
+		this.state = {
+			data: JSON.parse(JSON.stringify(require("./content.json")))
+		};
 	}
 
 	newList() {
@@ -13,7 +16,9 @@ class Content extends React.Component {
 	render () {
 		return (
 			<div>
-				<TodoList />
+				{this.state.data.lists.map((obj) => (
+					<TodoList obj={obj} />
+				))}
 				<button onClick={() => this.newList()}>New list</button>
 			</div>
 		)
