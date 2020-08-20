@@ -1,13 +1,10 @@
-.content {
-	overflow: hidden;
-}
-
 .todo-list {
-	display: flex;
 	background-color: white;
-	margin: auto;
+	margin: 30px;
 	width: 40%;
-	height: auto;
+	min-width: 300px;
+	max-width: 400px;
+	/*height: auto;*/
 	min-height: 30px;
 	max-height: 700px;
 	display: flex;
@@ -24,8 +21,32 @@
 	overflow: auto;
 }
 
+.title {
+	position: relative;
+	display: inline-block;
+
+	font-size: 20px;
+	text-align: center;
+	/*margin-right: 10px;*/
+	/*position: relative;*/
+	/*display: inline-block;*/
+	/*justify-content: flex-start;*/
+	align-items: center;
+	padding: 30px 20px 0;
+	flex-direction: column;
+	width: 70%;
+}
+
+.delete-list {
+	position: relative;
+	right: 52%;
+	top: -22%;
+}
+
+
 .new-item {
-	background-color: white;
+	background-color: whitesmoke;
 	margin-top: 15px;
 	font-size: 25px;
+	border-radius: 2px;
 }

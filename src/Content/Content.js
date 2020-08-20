@@ -34,11 +34,15 @@ class Content extends React.Component {
 
 	render () {
 		return (
-			<div>
+			<div className="content">
 				{this.state.data.lists.map((obj) => (
-					<TodoList obj={obj} deleteList={() => this.deleteList(obj.id)} />
+					<TodoList
+						key={obj.id}
+						obj={obj}
+						deleteList={() => this.deleteList(obj.id)}
+					/>
 				))}
-				<button onClick={() => this.addList()}>New list</button>
+				<button className="deleteList" onClick={() => this.addList()}>New list</button>
 			</div>
 		)
 	};

@@ -31,18 +31,21 @@ class TodoList extends React.Component {
 	render (props) {
 		return (
 			<div className="todo-list">
-				<button
-					className="delete-list"
-					onClick={() => this.props.deleteList()}>
-					x
-				</button>
-				<input
-					type="text"
-					className="title"
-					defaultValue={this.props.obj.title}>
-				</input>
+				{/*<div>*/}
+					<input
+						type="text"
+						className="title"
+						defaultValue={this.props.obj.title}>
+					</input>
+					<button
+						className="delete-list"
+						onClick={() => this.props.deleteList()}>
+						x
+					</button>
+				{/*</div>*/}
 				{this.props.obj.items.map((item) => {
 					return <TodoItem
+								key={item.id}
 								deleteItem={() => this.deleteItem(item.id)}
 								item={item}
 							/>

@@ -18,12 +18,23 @@ class TodoItem extends React.Component {
 	render (props) {
 		return (
 			<div className="todo-item">
-				<input type="checkbox" onClick={this.changeStatus} />
+				<input
+					type="checkbox"
+					onClick={this.changeStatus}
+				/>
 				<input type="text"
-					className={this.state.isCompleted ? "todo-item-completed" : "todo-item-noncompleted"}
+					className={
+						this.state.isCompleted
+							? "todo-item-completed"
+							: "todo-item-noncompleted"
+						}
 					defaultValue={this.props.item.text}>
 				</input>
-				<button className="delete-item" onClick={this.props.deleteItem}>x</button>
+				<button
+					className="deleteItem"
+					onClick={this.props.deleteItem}>
+					x
+				</button>
 			</div>
 		)
 	};
