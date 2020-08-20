@@ -42,7 +42,11 @@ class Content extends React.Component {
 						deleteList={() => this.deleteList(obj.id)}
 					/>
 				))}
-				<button className="deleteList" onClick={() => this.addList()}>New list</button>
+				<button
+					className="addList"
+					onClick={() => this.addList()}>
+					New list
+				</button>
 			</div>
 		)
 	};

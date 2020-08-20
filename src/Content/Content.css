@@ -28,6 +28,15 @@ input[type=text]:focus {
 	outline: 0;
 }
 
-.deleteList {
+.addList {
+	background-color: rgb(211, 211, 211);
+	margin: 30px;
+	height: 10%;
+	width: 20%;
+	min-width: 300px;
+	font-size: 25px;
+}
 
+.addList:hover {
+	background-color: rgb(189, 189, 189);
 }

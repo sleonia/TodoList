@@ -42,19 +42,19 @@ class TodoList extends React.Component {
 						defaultValue={this.props.obj.title}>
 					</input>
 					<div className="list">
-					{this.props.obj.items.map((item) => {
-						return <TodoItem
-									key={item.id}
-									deleteItem={() => this.deleteItem(item.id)}
-									item={item}
-								/>
-							})}
-					<button
-						className="new-item"
-						onClick={() => this.addItem()}>
-						New item
-					</button>
-						</div>
+						{this.props.obj.items.map((item) => {
+							return <TodoItem
+										key={item.id}
+										deleteItem={() => this.deleteItem(item.id)}
+										item={item}
+									/>
+								})}
+						<button
+							className="new-item"
+							onClick={() => this.addItem()}>
+							New item
+						</button>
+					</div>
 			</div>);
 	}
 };

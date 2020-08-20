@@ -19,7 +19,9 @@
 		0 20px 0 -10px #eee,
 		0 20px 1px -9px rgba(0,0,0,0.15);
 	padding: 30px;
-	overflow: auto;
+	overflow-y: auto;
+	scroll-snap-type: y mandatory;
+	scroll-behavior: smooth;
 }
 
 .title {
