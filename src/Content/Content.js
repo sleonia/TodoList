@@ -5,18 +5,30 @@ import TodoList from "./Todolist/Todolist"
 class Content extends React.Component {
 	constructor(props) {
 		super(props);
+		let content = localStorage.getItem("content");
+		let tmp = {
+			lists: []
+		}
 		this.state = {
-			data: JSON.parse(JSON.stringify(require("./content.json")))
-		};
+				data: !content
+						? localStorage.setItem("content", JSON.stringify(tmp))
+						: content,
+					
+				json: JSON.parse(!content
+									? JSON.stringify(content)
+									: JSON.stringify(tmp))
+			}
+		//console.log(this.state.json);
+		//console.log(this.state.json.lists);
 	}
 
 	addList = () => {
 		this.setState(previousState => {
-			previousState.data.lists.push({
-				"id": previousState.data.lists.length,
+			previousState.json.lists.push({
+				"id": previousState.json.lists.length.toString(),
 				"title": "New List",
 				"items": [{
-					"id": 0,
+					"id": "0",
 					"text": "",
 					"completed": "false"
 				}]
@@ -27,7 +39,8 @@ class Content extends React.Component {
 
 	deleteList = (listId) => {
 		this.setState(previousState => {
-			delete previousState.data.lists[listId];
+			localStorage.removeItem(listId);
+			delete previousState.lists[listId];
 			return this.state;
 		})
 	}
@@ -35,9 +48,10 @@ class Content extends React.Component {
 	render () {
 		return (
 			<div className="content">
-				{this.state.data.lists.map((obj) => (
+				{this.state.json.lists.map((obj) => (
 					<TodoList
 						key={obj.id}
+						id={obj.id}
 						obj={obj}
 						deleteList={() => this.deleteList(obj.id)}
 					/>

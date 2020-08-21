@@ -13,7 +13,7 @@ class TodoList extends React.Component {
 	addItem = () => {
 		this.setState(previousState => {
 			previousState.obj.items.push({
-				"id": previousState.obj.items.length,
+				"id": previousState.obj.items.length.toString() ,
 				"text": "",
 				"completed": "false"
 			})
@@ -30,7 +30,7 @@ class TodoList extends React.Component {
 
 	render (props) {
 		return (
-			<div className="todo-list">
+			<div className="todo-list" id={this.props.id}>
 					<button
 						className="delete-list"
 						onClick={() => this.props.deleteList()}>
@@ -45,8 +45,8 @@ class TodoList extends React.Component {
 						{this.props.obj.items.map((item) => {
 							return <TodoItem
 										key={item.id}
-										deleteItem={() => this.deleteItem(item.id)}
-										item={item}
+										id={this.props.id + item.id}
+										deleteItem={() => this.deleteItem(this.props.id + item.id)} ////???? 
 									/>
 								})}
 						<button
