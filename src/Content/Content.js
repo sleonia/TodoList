@@ -5,50 +5,52 @@ import TodoList from "./Todolist/Todolist"
 class Content extends React.Component {
 	constructor(props) {
 		super(props);
-		let content = localStorage.getItem("content");
-		let tmp = {
-			lists: []
-		}
 		this.state = {
-				data: !content
-						? localStorage.setItem("content", JSON.stringify(tmp))
-						: content,
-					
-				json: JSON.parse(!content
-									? JSON.stringify(content)
-									: JSON.stringify(tmp))
-			}
-		//console.log(this.state.json);
-		//console.log(this.state.json.lists);
+			data: []
+		}
+		this.fromLocalStorage();
+	}
+	
+	toLocalStorage = () => {
+		localStorage.setItem("data", JSON.stringify(this.state.data))
+	}
+	
+	fromLocalStorage = () => {
+		this.state.data = JSON.parse(localStorage.getItem("data"));
+		this.state.data = !this.state.data ? JSON.parse("[]") : this.state.data;
 	}
 
 	addList = () => {
 		this.setState(previousState => {
-			previousState.json.lists.push({
-				"id": previousState.json.lists.length.toString(),
-				"title": "New List",
-				"items": [{
-					"id": "0",
-					"text": "",
-					"completed": "false"
-				}]
+			//previousState.data.push(JSON.parse({
+			previousState.data.push(({
+					"id": 0,
+					//"id": previousState.length().toString(),
+					//"id": previousState.data .length().toString(),
+					"tittle": "New list",
+					"items": []
+				}))
 			})
-			return this.state;
-		})
+			//this.state.data.push(JSON.parse(list));
+		this.toLocalStorage();
+		console.log(this.state.data);
+		return this.state.data;
 	}
 
-	deleteList = (listId) => {
-		this.setState(previousState => {
-			localStorage.removeItem(listId);
-			delete previousState.lists[listId];
-			return this.state;
-		})
+	deleteList = (listId) => { /////////////
+	}
+
+	addItem = () => {
+	}
+
+	deleteItem = (itemId) => {
+		
 	}
 
 	render () {
 		return (
 			<div className="content">
-				{this.state.json.lists.map((obj) => (
+				{this.state.data.map((obj) => (
 					<TodoList
 						key={obj.id}
 						id={obj.id}

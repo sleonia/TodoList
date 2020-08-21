@@ -11,21 +11,21 @@ class TodoList extends React.Component {
 	}
 
 	addItem = () => {
-		this.setState(previousState => {
-			previousState.obj.items.push({
-				"id": previousState.obj.items.length.toString() ,
-				"text": "",
-				"completed": "false"
-			})
-			return this.state.obj;
-		})
+		//this.setState(previousState => {
+		//	previousState.obj.items.push({
+		//		"id": previousState.obj.items.length.toString() ,
+		//		"text": "",
+		//		"completed": "false"
+		//	})
+		//	return this.state.obj;
+		//})
 	}
 
 	deleteItem = (itemId) => {
-		this.setState(previousState => {
-			delete previousState.obj.items[itemId];
-			return this.state.obj;
-		})
+		//this.setState(previousState => {
+			//delete previousState.obj.items[itemId];
+			//return this.state.obj;
+		//})
 	}
 
 	render (props) {
