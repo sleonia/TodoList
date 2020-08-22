@@ -6,38 +6,41 @@ class Content extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			data: []
+			data: JSON.parse(localStorage.getItem("data")) || []
+			//data: !this.fromLocalStorage() ? [] : this.fromLocalStorage() //////////???????????????
 		}
-		this.fromLocalStorage();
+		console.log(this.state.data);
+		//console.log(JSON.parse(localStorage.getItem("data")));
 	}
 	
 	toLocalStorage = () => {
-		localStorage.setItem("data", JSON.stringify(this.state.data))
+		localStorage.setItem("data", JSON.stringify(this.state.data));
 	}
 	
 	fromLocalStorage = () => {
-		this.state.data = JSON.parse(localStorage.getItem("data"));
-		this.state.data = !this.state.data ? JSON.parse("[]") : this.state.data;
+		this.setState(() => {
+			const data = JSON.parse(localStorage.getItem("data"));
+			console.log(data);
+			return data;
+		})
 	}
 
 	addList = () => {
-		this.setState(previousState => {
-			//previousState.data.push(JSON.parse({
-			previousState.data.push(({
-					"id": 0,
-					//"id": previousState.length().toString(),
-					//"id": previousState.data .length().toString(),
-					"tittle": "New list",
-					"items": []
-				}))
-			})
-			//this.state.data.push(JSON.parse(list));
-		this.toLocalStorage();
-		console.log(this.state.data);
-		return this.state.data;
+		this.setState(state => {
+			const data = state.data.push(<p>AAAA</p>);
+			this.toLocalStorage();
+			console.log(state.data);
+			return data;
+		})
 	}
 
-	deleteList = (listId) => { /////////////
+	deleteList = (listId) => {
+		this.setState(state => {
+			const data = state.data.pop();
+			this.toLocalStorage();
+			//const data = state.data.pop(0, listId);
+			return data;
+		})
 	}
 
 	addItem = () => {
@@ -48,23 +51,16 @@ class Content extends React.Component {
 	}
 
 	render () {
-		return (
-			<div className="content">
-				{this.state.data.map((obj) => (
-					<TodoList
-						key={obj.id}
-						id={obj.id}
-						obj={obj}
-						deleteList={() => this.deleteList(obj.id)}
-					/>
-				))}
-				<button
-					className="addList"
-					onClick={() => this.addList()}>
-					New list
-				</button>
-			</div>
-		)
+		return (<div>
+			<button onClick={this.addList}>ADD</button>
+			<button onClick={this.deleteList}>DELETE</button>
+			<ul>
+			{this.state.data.map((item) => (
+				<li key={item}>{item.props.children}</li>
+				//console.log(item);
+			))}
+			</ul>
+		</div>)
 	};
 };
 
