@@ -11,7 +11,28 @@ class TodoItem extends React.Component {
 
 	changeStatus = () => {
 		this.setState(state => {
-			state.item.isCompleted = !state.item.isCompleted;
+			//state.item.isCompleted = !state.item.isCompleted;
+			this.props.item.isCompleted = !this.props.item.isCompleted;
+			this.props.toLocalStorage();
+			return state;
+		})
+	}
+
+	//handleClicker = (e) => {
+		//e.persist();
+		//this.setState(state => {
+			//this.props.item.isCompleted = e.target.value;
+			//this.props.toLocalStorage();
+			//return state;
+		//})
+	//}
+
+	saveItem = (e) => {
+		e.persist();
+		console.log(e.target.value);
+		this.setState(state => {
+			this.props.item.text = e.target.value;
+			this.props.toLocalStorage();
 			return state;
 		})
 	}
@@ -25,11 +46,11 @@ class TodoItem extends React.Component {
 				/>
 				<input type="text"
 					className={
-						this.state.item.isCompleted
+						this.props.item.isCompleted
 							? "todo-item-completed"
 							: "todo-item-noncompleted"
 						}
-					//onChange={this.saveItem}
+					onChange={this.saveItem}
 					defaultValue={this.state.item.text}>
 				</input>
 				<button

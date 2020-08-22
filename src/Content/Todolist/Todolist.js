@@ -43,7 +43,7 @@ class TodoList extends React.Component {
 	//	})
 	//}
 
-	saveItem = (event) => {
+	saveTittle = (event) => {
 		event.persist();
 		this.setState(state => {
 			this.props.obj.title = event.target.value;
@@ -72,6 +72,7 @@ class TodoList extends React.Component {
 									key={item.id}
 									item={item}
 									deleteItem={() => this.deleteItem(this.props.obj, item.id)}
+									toLocalStorage={() => this.props.toLocalStorage()}
 									//saveItem={() => this.saveItem(this.props.obj, item.id, item)}
 								/>)
 					))}
