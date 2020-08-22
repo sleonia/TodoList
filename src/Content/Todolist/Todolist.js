@@ -10,24 +10,6 @@ class TodoList extends React.Component {
 		};
 	}
 
-	addItem = () => {
-		//this.setState(previousState => {
-		//	previousState.obj.items.push({
-		//		"id": previousState.obj.items.length.toString() ,
-		//		"text": "",
-		//		"completed": "false"
-		//	})
-		//	return this.state.obj;
-		//})
-	}
-
-	deleteItem = (itemId) => {
-		//this.setState(previousState => {
-			//delete previousState.obj.items[itemId];
-			//return this.state.obj;
-		//})
-	}
-
 	render (props) {
 		return (
 			<div className="todo-list" id={this.props.id}>
@@ -46,12 +28,14 @@ class TodoList extends React.Component {
 							return <TodoItem
 										key={item.id}
 										id={this.props.id + item.id}
-										deleteItem={() => this.deleteItem(this.props.id + item.id)} ////???? 
+										deleteItem={() => this.props.deleteItem(this.props.id + item.id)} ////???? 
+										//addItem={() => this.props.addItem} ////???? 
+										//deleteItem={() => this.props.deleteItem(this.props.id + item.id)} ////???? 
 									/>
 								})}
 						<button
 							className="new-item"
-							onClick={() => this.addItem()}>
+							onClick={() => this.props.addItem()}>
 							New item
 						</button>
 					</div>

@@ -19,14 +19,9 @@ class TodoItem extends React.Component {
 		})
 	}
 
-	handeChange = (event) => {
-		this.setState({value: event.target.value});
-		localStorage.setItem(this.props.id, event.target.value);
-	}
-
 	render (props) {
 		return (
-			<div className="todo-item" id={this.props.id} onfocusout={this.handeChange}>
+			<div className="todo-item" id={this.props.id}>
 				<input
 					type="checkbox"
 					onClick={this.changeStatus}

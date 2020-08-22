@@ -7,10 +7,7 @@ class Content extends React.Component {
 		super(props);
 		this.state = {
 			data: JSON.parse(localStorage.getItem("data")) || []
-			//data: !this.fromLocalStorage() ? [] : this.fromLocalStorage() //////////???????????????
 		}
-		console.log(this.state.data);
-		//console.log(JSON.parse(localStorage.getItem("data")));
 	}
 	
 	toLocalStorage = () => {
@@ -20,47 +17,80 @@ class Content extends React.Component {
 	fromLocalStorage = () => {
 		this.setState(() => {
 			const data = JSON.parse(localStorage.getItem("data"));
-			console.log(data);
 			return data;
 		})
 	}
 
 	addList = () => {
 		this.setState(state => {
-			const data = state.data.push(<p>AAAA</p>);
+			const data = state.data.push({
+				id: state.data.length,
+				title: "New list",
+				items: []
+			});
 			this.toLocalStorage();
-			console.log(state.data);
+			console.log(this.state.data);
 			return data;
 		})
 	}
 
 	deleteList = (listId) => {
 		this.setState(state => {
-			const data = state.data.pop();
+			const data = state.data.splice(listId, 1);
 			this.toLocalStorage();
-			//const data = state.data.pop(0, listId);
 			return data;
 		})
 	}
 
-	addItem = () => {
+	addItem = (listId) => {
+		console.log(this.state.data[listId]);
+		this.setState(state => {
+			let item = {
+				id: state.data[listId].items.length || 0,
+				text: "",
+				isCompleted: false
+			};
+			const data = state.data[listId].items.push(JSON.parse(JSON.stringify(item)));
+			this.toLocalStorage();
+			return data;
+		})
 	}
 
-	deleteItem = (itemId) => {
-		
+	deleteItem = (listId, itemId) => {
+		this.setState(state => {
+			const data = state.data[listId].splice(itemId, 1);
+			this.toLocalStorage();
+			return data;
+		})
+	}
+
+	changeStatus = () => {
+		this.setState(previousState => {
+			return {
+				isCompleted: !previousState.isCompleted
+			}
+		})
 	}
 
 	render () {
-		return (<div>
-			<button onClick={this.addList}>ADD</button>
-			<button onClick={this.deleteList}>DELETE</button>
-			<ul>
-			{this.state.data.map((item) => (
-				<li key={item}>{item.props.children}</li>
-				//console.log(item);
-			))}
-			</ul>
-		</div>)
+		return (
+			<div className="content">
+				{this.state.data.map((obj) => (
+					<TodoList
+						key={obj.id}
+						obj={obj}
+						deleteList={() => this.deleteList(obj.id)}
+						deleteItem={() => this.deleteItem(obj.id)}
+						addItem={() => this.addItem(obj.id)}
+					/>
+				))}
+				<button
+					className="addList"
+					onClick={() => this.addList()}>
+					New list
+				</button>
+			</div>
+		)
 	};
 };
 
