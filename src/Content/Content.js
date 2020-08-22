@@ -29,16 +29,15 @@ class Content extends React.Component {
 				items: []
 			});
 			this.toLocalStorage();
-			console.log(this.state.data);
 			return data;
 		})
 	}
 
 	deleteList = (listId) => {
 		this.setState(state => {
-			const data = state.data.splice(listId, 1);
+			delete state.data[listId];/////////crutch?
 			this.toLocalStorage();
-			return data;
+			return state;
 		})
 	}
 
@@ -47,47 +46,33 @@ class Content extends React.Component {
 		this.setState(state => {
 			let item = {
 				id: state.data[listId].items.length || 0,
-				text: "",
+				text: " ",
 				isCompleted: false
 			};
-			const data = state.data[listId].items.push(JSON.parse(JSON.stringify(item)));
+			state.data[listId].items.push(JSON.parse(JSON.stringify(item)));
 			this.toLocalStorage();
-			return data;
-		})
-	}
-
-	deleteItem = (listId, itemId) => {
-		this.setState(state => {
-			const data = state.data[listId].splice(itemId, 1);
-			this.toLocalStorage();
-			return data;
-		})
-	}
-
-	changeStatus = () => {
-		this.setState(previousState => {
-			return {
-				isCompleted: !previousState.isCompleted
-			}
+			return state;
 		})
 	}
 
 	render () {
 		return (
 			<div className="content">
-				{this.state.data.map((obj) => (
-					<TodoList
+				{this.state.data.map(obj => (
+					obj && (
+						<TodoList
 						key={obj.id}
 						obj={obj}
 						deleteList={() => this.deleteList(obj.id)}
-						deleteItem={() => this.deleteItem(obj.id)}
 						addItem={() => this.addItem(obj.id)}
-					/>
+						toLocalStorage={() => this.toLocalStorage()}
+						/>
+					)
 				))}
 				<button
 					className="addList"
 					onClick={() => this.addList()}>
-					New list
+					<p>New list</p>
 				</button>
 			</div>
 		)

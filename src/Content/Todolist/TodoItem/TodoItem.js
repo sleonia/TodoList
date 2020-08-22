@@ -4,41 +4,38 @@ import "./TodoItem.css";
 class TodoItem extends React.Component {
 	constructor(props) {
 		super(props);
-		let value = localStorage.getItem(props.id);
 		this.state = {
-			isCompleted: false,
-			value: !value ? "" : value
+			item: this.props.item || {}
 		};
 	};
 
 	changeStatus = () => {
-		this.setState(previousState => {
-			return {
-				isCompleted: !previousState.isCompleted
-			}
+		this.setState(state => {
+			state.item.isCompleted = !state.item.isCompleted;
+			return state;
 		})
 	}
 
 	render (props) {
 		return (
-			<div className="todo-item" id={this.props.id}>
+			<div className="todo-item" id={this.props.item.id}>
 				<input
 					type="checkbox"
 					onClick={this.changeStatus}
 				/>
 				<input type="text"
 					className={
-						this.state.isCompleted
+						this.state.item.isCompleted
 							? "todo-item-completed"
 							: "todo-item-noncompleted"
 						}
-					onChange={this.handeChange}
-					value={this.state.value}>
+					//onChange={this.saveItem}
+					defaultValue={this.state.item.text}>
 				</input>
 				<button
 					className="deleteItem"
 					onClick={this.props.deleteItem}>
-					x
+					<p>x</p>
 				</button>
 			</div>
 		)
