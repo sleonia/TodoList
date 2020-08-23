@@ -13,8 +13,8 @@ class Content extends React.Component {
 	toLocalStorage = () => {
 		localStorage.setItem("data", JSON.stringify(this.state.data));
 	}
-	
-	fromLocalStorage = () => {
+
+	fromLocalStorage = () => { //useless?
 		this.setState(() => {
 			const data = JSON.parse(localStorage.getItem("data"));
 			return data;

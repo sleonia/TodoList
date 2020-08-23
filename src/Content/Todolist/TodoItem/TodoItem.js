@@ -11,25 +11,14 @@ class TodoItem extends React.Component {
 
 	changeStatus = () => {
 		this.setState(state => {
-			//state.item.isCompleted = !state.item.isCompleted;
 			this.props.item.isCompleted = !this.props.item.isCompleted;
 			this.props.toLocalStorage();
 			return state;
 		})
 	}
 
-	//handleClicker = (e) => {
-		//e.persist();
-		//this.setState(state => {
-			//this.props.item.isCompleted = e.target.value;
-			//this.props.toLocalStorage();
-			//return state;
-		//})
-	//}
-
 	saveItem = (e) => {
 		e.persist();
-		console.log(e.target.value);
 		this.setState(state => {
 			this.props.item.text = e.target.value;
 			this.props.toLocalStorage();
@@ -39,7 +28,7 @@ class TodoItem extends React.Component {
 
 	render (props) {
 		return (
-			<div className="todo-item" id={this.props.item.id}>
+			<div className="todo-item" id={this.state.item.id}>
 				<input
 					type="checkbox"
 					onClick={this.changeStatus}

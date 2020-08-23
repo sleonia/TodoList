@@ -19,30 +19,6 @@ class TodoList extends React.Component {
 		})
 	}
 
-	//saveItem (e, obj, itemId, item) {
-	//	console.log(1);
-	//	this.setState(state => {
-	//		item.text = e.target.value;
-	//		let json = JSON.parse(localStorage.getItem("data"));
-	//		json[listId].items[itemId] = item;
-	//		localStorage.setItem("data", JSON.stringify(json));
-	//		return state;
-	//	})
-	//}
-
-	//saveItem (e, listId, itemId, item) {
-	//	console.log(1);
-	//	this.setState(state => {
-	//		let tmp = {
-	//			id: item.id,
-	//			text: e.target.value,
-	//			isCompleted: item.isCompleted
-	//		}
-	//		JSON.parse(tmp);
-	//		return state;
-	//	})
-	//}
-
 	saveTittle = (event) => {
 		event.persist();
 		this.setState(state => {
@@ -73,7 +49,6 @@ class TodoList extends React.Component {
 									item={item}
 									deleteItem={() => this.deleteItem(this.props.obj, item.id)}
 									toLocalStorage={() => this.props.toLocalStorage()}
-									//saveItem={() => this.saveItem(this.props.obj, item.id, item)}
 								/>)
 					))}
 					<button
