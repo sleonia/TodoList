@@ -1,6 +1,6 @@
 import React from "react";
 import "./Content.css";
-import TodoList from "./Todolist/Todolist"
+import TodoList from "./TodoList/TodoList"
 
 class Content extends React.Component {
 	constructor(props) {
