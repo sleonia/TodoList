@@ -10,18 +10,17 @@ class Content extends React.Component {
 		}
 	}
 	
-	toLocalStorage = () => {
+	toLocalStorage() {
 		localStorage.setItem("data", JSON.stringify(this.state.data));
 	}
 
-	fromLocalStorage = () => { //useless?
+	fromLocalStorage() { //useless?
 		this.setState(() => {
-			const data = JSON.parse(localStorage.getItem("data"));
-			return data;
+			return JSON.parse(localStorage.getItem("data"));
 		})
 	}
 
-	addList = () => {
+	addList() {
 		this.setState(state => {
 			const data = state.data.push({
 				id: state.data.length,
@@ -33,15 +32,15 @@ class Content extends React.Component {
 		})
 	}
 
-	deleteList = (listId) => {
+	deleteList(listId) {
 		this.setState(state => {
-			delete state.data[listId];/////////crutch?
+			delete state.data[listId];
 			this.toLocalStorage();
 			return state;
 		})
 	}
 
-	addItem = (listId) => {
+	addItem(listId) {
 		console.log(this.state.data[listId]);
 		this.setState(state => {
 			let item = {

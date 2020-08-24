@@ -10,7 +10,7 @@ class TodoList extends React.Component {
 		};
 	}
 
-	deleteItem = (obj, itemId) => {
+	deleteItem(obj, itemId) {
 		this.setState(state => {
 			delete obj.items[itemId];
 			delete state.items[itemId];
@@ -19,7 +19,7 @@ class TodoList extends React.Component {
 		})
 	}
 
-	saveTittle = (event) => {
+	saveTittle(event) {
 		event.persist();
 		this.setState(state => {
 			this.props.obj.title = event.target.value;
