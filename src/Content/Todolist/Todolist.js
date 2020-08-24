@@ -19,7 +19,7 @@ class TodoList extends React.Component {
 		})
 	}
 
-	saveTittle(event) {
+	saveTittle = (event) => {
 		event.persist();
 		this.setState(state => {
 			this.props.obj.title = event.target.value;
@@ -40,7 +40,7 @@ class TodoList extends React.Component {
 					type="text"
 					className="title"
 					defaultValue={this.props.obj.title}
-					onChange={this.saveItem}>
+					onChange={this.saveTittle}>
 				</input>
 				<div className="list">
 					{this.state.items.map((item) => (
