@@ -1,6 +1,13 @@
 import React from "react";
 import "./Content.css";
 import TodoList from "./TodoList/TodoList"
+import * as reducers from "../../../Reducers/index"
+import { createStore } from "redux";
+import { combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+
+const reducer = combineReducers(reducers);
+const store = createStore(reducer);
 
 class Content extends React.Component {
 	constructor(props) {
@@ -54,26 +61,31 @@ class Content extends React.Component {
 		})
 	}
 
+	//render () {
+	//	return (
+	//		<div className="content">
+	//			{this.state.data.map(obj => (
+	//				obj && (
+	//					<TodoList
+	//					key={obj.id}
+	//					obj={obj}
+	//					deleteList={() => this.deleteList(obj.id)}
+	//					addItem={() => this.addItem(obj.id)}
+	//					toLocalStorage={() => this.toLocalStorage()}
+	//					/>
+	//				)
+	//			))}
+	//			<button
+	//				className="addList"
+	//				onClick={() => this.addList()}>
+	//				<p>New list</p>
+	//			</button>
+	//		</div>
+	//	)
+	//};
 	render () {
 		return (
-			<div className="content">
-				{this.state.data.map(obj => (
-					obj && (
-						<TodoList
-						key={obj.id}
-						obj={obj}
-						deleteList={() => this.deleteList(obj.id)}
-						addItem={() => this.addItem(obj.id)}
-						toLocalStorage={() => this.toLocalStorage()}
-						/>
-					)
-				))}
-				<button
-					className="addList"
-					onClick={() => this.addList()}>
-					<p>New list</p>
-				</button>
-			</div>
+			<div></div>
 		)
 	};
 };
