@@ -5,10 +5,10 @@ import { VisibilityFilters } from '../Actions/index'
 const Footer = () => (
   <div>
     <span>Show: </span>
-    <FilterLink filter={VisibilityFilters.SHOW_ALL}>All</FilterLink>
-    <FilterLink filter={VisibilityFilters.SHOW_ACTIVE}>Active</FilterLink>
-    <FilterLink filter={VisibilityFilters.SHOW_COMPLETED}>Completed</FilterLink>
+    <FilterLink filter={VisibilityFilters.ShowAll}>All</FilterLink>
+    <FilterLink filter={VisibilityFilters.ShowActive}>Active</FilterLink>
+    <FilterLink filter={VisibilityFilters.ShowCompleted}>Completed</FilterLink>
   </div>
 )
 
-export default Footer
+export default Footer;

@@ -4,7 +4,7 @@ import React from "react";
 class Header extends React.Component {
 	getTime() {
 		let date = new Date();
-		return date.toDateString();
+		return date.getUTCFullYear();///////
 	}
 
 	render () {

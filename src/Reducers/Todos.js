@@ -1,17 +1,22 @@
+import Actions from "../Constants/ActionTypes"
+
 const todos = (state = [], action) => {
+	console.log(action.type);
 	switch (action.type) {
-	  case 'ADD_TODO':
+	  case Actions.AddItem:
 		return [
 		  ...state,
 		  {
 			id: action.id,
 			text: action.text,
-			completed: false
+			isCompleted: false
 		  }
 		]
-	  case 'TOGGLE_TODO':
+	  case Actions.ToggleItem:
 		return state.map(todo =>
-		  todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
+		  todo.id === action.id
+		  	? { ...todo, isCompleted: !todo.isCompleted }
+		  	: todo
 		)
 	  default:
 		return state
