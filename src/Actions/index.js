@@ -1,35 +1,22 @@
-import * as types from "../Constants/ActionTypes"
+let nextTodoId = 0
+export const addTodo = text => ({
+  type: 'ADD_TODO',
+  id: nextTodoId++,
+  text
+})
 
-let itemId = 0;
+export const setVisibilityFilter = filter => ({
+  type: 'SET_VISIBILITY_FILTER',
+  filter
+})
 
-//export function addList(text) {
-//	return {
-//		type: types.addList,
-//		items: []
-//	};
-//}
+export const toggleTodo = id => ({
+  type: 'TOGGLE_TODO',
+  id
+})
 
-//export function deleteList(listId) {
-	//return {
-		//type: types.deleteList,
-		//listId
-	//};
-//}
-
-export function addItem(text) {
-	return {
-		type: types.addItem,
-		id: itemId++,
-		text: text
-	};
-}
-
-//export function deleteItem() {
-//}
-
-export function toggleTodo(id) {
-	return {
-		type: types.ToggleTodo,
-		id: id
-	};
+export const VisibilityFilters = {
+  SHOW_ALL: 'SHOW_ALL',
+  SHOW_COMPLETED: 'SHOW_COMPLETED',
+  SHOW_ACTIVE: 'SHOW_ACTIVE'
 }
