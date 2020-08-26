@@ -1,4 +1,5 @@
 import Actions from '../Constants/ActionTypes';
+import { act } from 'react-dom/test-utils';
 
 const todos = (state = [], action) => {
   switch (action.type) {
@@ -17,6 +18,13 @@ const todos = (state = [], action) => {
         todo.id === action.id
           ? { ...todo, isCompleted: !todo.isCompleted }
           : todo));
+
+    case Actions.deleteItem:
+      const stateTemp = [ // bad?????
+        ...state.slice(0, action.id),
+        ...state.slice(action.id + 1)
+      ];
+      return stateTemp;
 
     default:
       return state;

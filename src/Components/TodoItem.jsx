@@ -1,19 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TodoItem = ({ onClick, isCompleted, text }) => (
+const TodoItem = ({ deleteItem, toggleItem, isCompleted, text, id }) => (
   <li
     className={(isCompleted) ? 'todo-item-completed' : 'todo-item-noncompleted'}
-    onClick={onClick}
+    onClick={toggleItem}
   >
    {text}
+  <button type="submit" onClick={deleteItem}>Delete</button>
   </li>
 );
 
 TodoItem.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  deleteItem: PropTypes.func.isRequired,
+  toggleItem: PropTypes.func.isRequired,
   isCompleted: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default TodoItem;

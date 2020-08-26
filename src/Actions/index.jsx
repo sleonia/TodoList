@@ -1,11 +1,16 @@
 import Actions from '../Constants/ActionTypes';
 
 let nextTodoId = 0;
-
 export const addItem = (text) => ({
   type: Actions.AddItem,
-  id: nextTodoId++, // ???????????????????
+  id: nextTodoId++,
+  // id: (() => { nextTodoId++; }),
   text,
+});
+
+export const deleteItem = (id) => ({
+  type: Actions.deleteItem,
+  id,
 });
 
 export const setVisibilityFilter = (filter) => ({
