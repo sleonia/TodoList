@@ -1,0 +1,51 @@
+
+.todo-
+item {
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 30px 20px 0;
+	width: 70%;
+	border-bottom: 1px solid #cecece;
+	font-family: Roboto, sans-serif;
+	font-weight: 100;
+	font-size: 15px;
+	color: #333333;
+}
+
+.todo-item-completed {
+	font-size: 15px;
+	font-style: italic;
+	color: #cdcdcd;
+	text-decoration: line-through;
+}
+
+.todo-item-noncompleted {
+	font-size: 15px;
+	color: #333333;
+	border: 0;
+}
+
+input[type=checkbox] {
+	margin-right: 10px;
+	font-size: 30px;
+}
+
+input[type=checkbox]:focus {
+	outline: 0;
+}
+
+.todo-item:input[type=text]:focus {
+	width: 90%;
+}
+
+.deleteItem {
+	position:absolute;
+	right: 0;
+	margin-left: 10px;
+}
+
+.deleteItem:hover {
+	background-color: rgb(211, 211, 211);
+}

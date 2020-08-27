@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addItem, deleteItem } from '../Actions/index';
+import { addItem } from '../Actions/index';
 
 const AddItem = ({ dispatch }) => {
   let input;

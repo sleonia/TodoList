@@ -11,8 +11,8 @@ const TodoList = ({ todos, deleteItem, toggleItem }) => (
         text={todo.text}
         id={todo.id}
         deleteItem={() => deleteItem(todo.id)}
-        toggleItem={() => console.log(todo.id)}
-        //toggleItem={() => toggleItem(todo.id)}
+        toggleItem={() => toggleItem(todo.id)}
+        //toggleItem={() => console.log(todo.id)}
       />
     ))}
   </ul>
@@ -24,7 +24,6 @@ TodoList.propTypes = {
       id: PropTypes.number.isRequired,
       isCompleted: PropTypes.bool.isRequired,
       text: PropTypes.string.isRequired,
-      id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
   deleteItem: PropTypes.func.isRequired,

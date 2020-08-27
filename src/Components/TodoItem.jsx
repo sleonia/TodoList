@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './TodoItem.css';
 
 const TodoItem = ({ deleteItem, toggleItem, isCompleted, text, id }) => (
   <li
-    className={(isCompleted) ? 'todo-item-completed' : 'todo-item-noncompleted'}
-    onClick={toggleItem}
+    //className={(isCompleted) ? 'todo-item-completed' : 'todo-item-noncompleted'}
+    //onClick={toggleItem}
   >
-   {text}
-  <button type="submit" onClick={deleteItem}>Delete</button>
+    <input defaultValue={text} className={(isCompleted) ? 'todo-item-completed' : 'todo-item-noncompleted'} ></input>
+    <button type="submit" onClick={toggleItem}>Toggle</button>
+    <button type="submit" onClick={deleteItem}>Delete</button>
   </li>
 );
 

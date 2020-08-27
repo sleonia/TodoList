@@ -1,5 +1,4 @@
 import Actions from '../Constants/ActionTypes';
-import { act } from 'react-dom/test-utils';
 
 const todos = (state = [], action) => {
   switch (action.type) {
@@ -7,7 +6,8 @@ const todos = (state = [], action) => {
       return [
         ...state,
         {
-          id: action.id,
+          //id: action.id,
+          id: state.length,
           text: action.text,
           isCompleted: false,
         },
