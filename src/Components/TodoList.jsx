@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TodoItem from './TodoItem';
 
-const TodoList = ({ todos, deleteItem, toggleItem }) => (
-  <ul>
+const TodoList = ({ todos, deleteItem, toggleItem }) => {
+  console.log(todos);
+
+  return (<ul>
     {todos.map((todo) => (
       <TodoItem
         key={todo.id}
@@ -14,8 +16,8 @@ const TodoList = ({ todos, deleteItem, toggleItem }) => (
         toggleItem={() => toggleItem(todo.id)}
       />
     ))}
-  </ul>
-);
+  </ul>)
+}
 
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(

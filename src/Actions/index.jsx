@@ -1,6 +1,7 @@
 import Actions from '../Constants/ActionTypes';
 
 let nextTodoId = 0;
+
 export const addItem = (text) => ({
   type: Actions.AddItem,
   id: nextTodoId++,
