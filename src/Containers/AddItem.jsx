@@ -19,7 +19,6 @@ const AddItem = ({ dispatch }) => {
         }}
       >
         <input ref={(node) => { input = node; }} />
-        {/*<button type="submit" onClick={() => {dispatch(addItem("123"))}}>Add Item</button>*/}
         <button type="submit">Add Item</button>
       </form>
     </div>

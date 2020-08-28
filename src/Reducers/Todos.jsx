@@ -6,34 +6,21 @@ function toLocalStorage(state) {
   localStorage.setItem('data', JSON.stringify(state));
 }
 
-function idUpdate(state) {///// crutch
-  let i = 0;
-  state.map((todo) => {
-    console.log(`1: id = ${todo.id} i = ${i}`);
-    todo.id = i++;
-    console.log(`2: id = ${todo.id} i = ${i}`);
-    console.log();
-    return todo.id;
-  });
-}
-
 const todos = (state = initialState, action) => {
   let newState;
   switch (action.type) {
     case Actions.AddItem:
+      // console.log(state);
       newState = [
         ...state,
         {
-          id: action.id,
-          // id: state.length,
+          id: state[state.length - 1] ? state[state.length - 1].id + 1 : 0,
           text: action.text,
           isCompleted: false,
         },
       ];
       toLocalStorage(newState);
-      idUpdate(newState);
       return newState;
-
 
     case Actions.ToggleItem:
       newState = state.map((todo) => (
@@ -45,9 +32,7 @@ const todos = (state = initialState, action) => {
 
     case Actions.deleteItem:
       newState = [...state].filter((todo) => action.id !== todo.id);
-      idUpdate(newState);
       toLocalStorage(newState);
-      console.log(newState);
       return newState;
 
     default:

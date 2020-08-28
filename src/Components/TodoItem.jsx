@@ -4,7 +4,8 @@ import './TodoItem.css';
 
 const TodoItem = ({ deleteItem, toggleItem, isCompleted, text }) => (
   <li>
-    <input
+    <input type="text"
+      placeholder={text}
       defaultValue={text}
       className={(isCompleted)
         ? 'todo-item-completed'
