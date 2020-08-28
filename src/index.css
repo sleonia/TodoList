@@ -2,3 +2,24 @@ body {
 	margin: 0;
 	background-color: whitesmoke;
 }
+
+input[type=text] {
+	border: 0;
+}
+
+button {
+	border-radius: 2px;
+	border-style: solid;
+	box-shadow: none;
+	border-color: whitesmoke;
+	background-color: whitesmoke;
+}
+
+button:hover {
+	border-color: rgb(211, 211, 211);
+	background-color: rgb(211, 211, 211);
+}
+
+input[type=text]:focus {
+	outline: 0;
+}

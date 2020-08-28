@@ -1,5 +1,5 @@
 import React from 'react';
-import './Header.css';
+import style from './Header.module.css';
 
 class Header extends React.Component {
   getTime() {
@@ -9,7 +9,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <header className="navbar">
+      <header className={style.navbar}>
         <h2>{this.getTime()}</h2>
       </header>
     );

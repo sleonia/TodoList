@@ -1,6 +1,4 @@
-
-.todo-
-item {
+.todoItem {
 	position: relative;
 	display: flex;
 	justify-content: flex-start;
@@ -14,14 +12,14 @@ item {
 	color: #333333;
 }
 
-.todo-item-completed {
+.todoItemCompleted {
 	font-size: 15px;
 	font-style: italic;
 	color: #cdcdcd;
 	text-decoration: line-through;
 }
 
-.todo-item-noncompleted {
+.todoItemNoncompleted {
 	font-size: 15px;
 	color: #333333;
 	border: 0;
@@ -36,7 +34,7 @@ input[type=checkbox]:focus {
 	outline: 0;
 }
 
-.todo-item:input[type=text]:focus {
+.todoItem:input[type=text]:focus {
 	width: 90%;
 }
 
