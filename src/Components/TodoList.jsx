@@ -12,7 +12,6 @@ const TodoList = ({ todos, deleteItem, toggleItem }) => (
         id={todo.id}
         deleteItem={() => deleteItem(todo.id)}
         toggleItem={() => toggleItem(todo.id)}
-        //toggleItem={() => console.log(todo.id)}
       />
     ))}
   </ul>
