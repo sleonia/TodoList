@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
@@ -14,10 +14,9 @@ const logger = ({ getState }) => next => action => {
     return result;
 };
 
-const store = createStore(rootReducer, {}, 
-  window.REDUX_DEVTOOLS_EXTENSION && window.REDUX_DEVTOOLS_EXTENSION());
+const store = createStore(rootReducer, {}, applyMiddleware(logger));
 
-render(
+ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,

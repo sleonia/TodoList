@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './TodoItem.module.css';
+import styles from './style.module.css';
 
 const TodoItem = ({
   deleteItem, toggleItem, isCompleted, text,
@@ -13,6 +13,7 @@ const TodoItem = ({
       className={(isCompleted)
         ? styles.todoItemCompleted
         : styles.todoItemNonCompleted}
+      // onChange={handleChange}
     >
     </input>
     <button type="submit" onClick={toggleItem}>Toggle</button>
