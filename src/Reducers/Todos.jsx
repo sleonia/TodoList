@@ -2,15 +2,14 @@ import Actions from '../Constants/ActionTypes';
 
 const initialState = JSON.parse(localStorage.getItem('data')) || [];
 
-function toLocalStorage(state) {
-  localStorage.setItem('data', JSON.stringify(state));
+function toLocalStorage(data) {
+  localStorage.setItem('data', JSON.stringify(data));
 }
 
 const todos = (state = initialState, action) => {
   let newState;
   switch (action.type) {
     case Actions.AddItem:
-      // console.log(state);
       newState = [
         ...state,
         {
