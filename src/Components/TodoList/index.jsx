@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import TodoItem from '../TodoItem';
 import styles from './style.module.css';
 
-const TodoList = ({ todos, deleteItem, toggleItem }) => {
+const TodoList = ({
+  todos, deleteItem, saveItem, toggleItem,
+}) => {
   return (
     <div className={styles.todo_list}>
       <ul>
@@ -14,12 +16,13 @@ const TodoList = ({ todos, deleteItem, toggleItem }) => {
             text={todo.text}
             id={todo.id}
             deleteItem={() => deleteItem(todo.id)}
+            saveItem={(value) => saveItem(value, todo.id)}
             toggleItem={() => toggleItem(todo.id)}
           />
         ))}
       </ul>
     </div>
-  )
+  );
 };
 
 TodoList.propTypes = {
@@ -31,6 +34,7 @@ TodoList.propTypes = {
     }).isRequired,
   ).isRequired,
   deleteItem: PropTypes.func.isRequired,
+  saveItem: PropTypes.func.isRequired,
   toggleItem: PropTypes.func.isRequired,
 };
 

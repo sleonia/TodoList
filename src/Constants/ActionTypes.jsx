@@ -8,6 +8,7 @@ const Actions = {
   ShowAll: 6,
   ShowCompleted: 7,
   ShowActive: 8,
+  SaveItem: 9,
 };
 
 export default Actions;

@@ -7,14 +7,14 @@ function toLocalStorage(data) {
 }
 
 const todos = (state = initialState, action) => {
-  let newState;
+  let newState = null;
   switch (action.type) {
     case Actions.AddItem:
       newState = [
         ...state,
         {
           id: state[state.length - 1] ? state[state.length - 1].id + 1 : 0,
-          text: action.text,
+          text: action.payload.text,
           isCompleted: false,
         },
       ];
@@ -23,14 +23,23 @@ const todos = (state = initialState, action) => {
 
     case Actions.ToggleItem:
       newState = state.map((todo) => (
-        todo.id === action.id
+        todo.id === action.payload.id
           ? { ...todo, isCompleted: !todo.isCompleted }
           : todo));
       toLocalStorage(newState);
       return newState;
 
-    case Actions.deleteItem:
-      newState = [...state].filter((todo) => action.id !== todo.id);
+    case Actions.DeleteItem:
+      newState = [...state].filter((todo) => action.payload.id !== todo.id);
+      toLocalStorage(newState);
+      return newState;
+
+    case Actions.SaveItem:
+      console.log(action);
+      newState = state.map((todo) => (
+        todo.id === action.payload.id
+          ? { ...todo, text: action.payload.text }
+          : todo));
       toLocalStorage(newState);
       return newState;
 
