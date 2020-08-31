@@ -2,29 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './style.module.css';
 
-const handleChange = (value, saveItem) => { // move to onChange?????
-  console.log(value);
-  saveItem(value, 0);
-};
-
 const TodoItem = ({
   deleteItem, toggleItem, saveItem, isCompleted, text,
 }) => (
+  /* eslint-disable */
   <li>
     <input
       type="text"
-      // placeholder={text}
       defaultValue={text}
-//      value={text}
       className={(isCompleted)
         ? styles.todoItemCompleted
         : styles.todoItemNonCompleted}
-      onChange={(e) => {handleChange(e.target.value, saveItem)}}
+      onChange={(e) => {saveItem(e.target.value)}}
     >
     </input>
     <button type="submit" onClick={toggleItem}>Toggle</button>
     <button type="submit" onClick={deleteItem}>Delete</button>
   </li>
+  /* eslint-enable */
 );
 
 TodoItem.propTypes = {

@@ -1,20 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './Reducers/index';
 import App from './Components/App';
 import './index.css';
-// import logger from './Actions/Logger';
 
-const logger = ({ getState }) => next => action => {
-  const result = next(action);  
-  console.log(1)
-    return result;
+const localStorageMiddleware = ({ getState }) => next => action => {
+  const res = next(action);
+  console.log(getState());
+  if ([action.type].includes(res.type)) {
+    localStorage.setItem('data', JSON.stringify(getState().todos));
+  }
+  return res;
 };
 
-const store = createStore(rootReducer, {}, applyMiddleware(logger));
+const store = createStore(rootReducer, applyMiddleware(localStorageMiddleware));
+
+
 
 ReactDOM.render(
   <Provider store={store}>
