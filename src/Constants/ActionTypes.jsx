@@ -1,14 +1,14 @@
 const Actions = {
-  AddList: 0,
-  DeleteList: 1,
-  AddItem: 2,
-  DeleteItem: 3,
-  ToggleItem: 4,
-  SetVisibilityFilter: 5,
-  ShowAll: 6,
-  ShowCompleted: 7,
-  ShowActive: 8,
-  SaveItem: 9,
+  AddList: 'AddList',
+  DeleteList: 'DeleteList',
+  AddItem: 'AddItem',
+  DeleteItem: 'DeleteItem',
+  ToggleItem: 'ToggleItem',
+  SetVisibilityFilter: 'SetVisibilityFilter',
+  ShowAll: 'ShowAll',
+  ShowCompleted: 'ShowCompleted',
+  ShowActive: 'ShowActive',
+  SaveItem: 'SaveItem',
 };
 
 export default Actions;

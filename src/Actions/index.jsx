@@ -2,17 +2,12 @@ import Actions from '../Constants/ActionTypes';
 
 export const addItem = (text) => ({
   type: Actions.AddItem,
-  payload: {
-    id: 0,
-    text,
-  },
+  payload: text,
 });
 
 export const deleteItem = (id) => ({
   type: Actions.DeleteItem,
-  payload: {
-    id,
-  },
+  payload: id,
 });
 
 export const saveItem = (text, id) => ({

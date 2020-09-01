@@ -17,8 +17,6 @@ const localStorageMiddleware = ({ getState }) => next => action => {
 
 const store = createStore(rootReducer, applyMiddleware(localStorageMiddleware));
 
-
-
 ReactDOM.render(
   <Provider store={store}>
     <App />

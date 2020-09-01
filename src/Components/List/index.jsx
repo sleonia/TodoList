@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TodoItem from '../TodoItem';
+import TodoItem from '../Item';
 import styles from './style.module.css';
 
 const TodoList = ({
@@ -9,15 +9,15 @@ const TodoList = ({
   return (
     <div className={styles.todo_list}>
       <ul>
-        {todos.map((todo) => (
+        {todos.map(({id, text, isCompleted}) => (
           <TodoItem
-            key={todo.id}
-            isCompleted={todo.isCompleted}
-            text={todo.text}
-            id={todo.id}
-            deleteItem={() => deleteItem(todo.id)}
-            saveItem={(value) => saveItem(value, todo.id)}
-            toggleItem={() => toggleItem(todo.id)}
+            key={id}
+            isCompleted={isCompleted}
+            text={text}
+            id={id}
+            deleteItem={() => deleteItem(id)}
+            saveItem={(value) => saveItem(value, id)}
+            toggleItem={() => toggleItem(id)}
           />
         ))}
       </ul>

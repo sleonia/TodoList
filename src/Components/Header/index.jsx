@@ -1,19 +1,17 @@
 import React from 'react';
 import style from './style.module.css';
 
-class Header extends React.Component {
-  getTime() {
-    this.date = new Date();
-    return this.date.toDateString();
-  }
+const Header = () => {
+  function getTime() {
+      const date = new Date();
+      return date.toDateString();
+  };
 
-  render() {
-    return (
-      <header className={style.navbar}>
-        <h2>{this.getTime()}</h2>
-      </header>
-    );
-  }
-}
+  return (
+    <header className={style.navbar}>
+      <h2>{getTime()}</h2>
+    </header>
+  );
+};
 
 export default Header;

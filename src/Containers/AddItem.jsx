@@ -1,32 +1,9 @@
-import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { addItem } from '../Actions/index';
+import { addItem } from '../Actions';
+import AddItem from '../Components/AddItem';
 
-const AddItem = ({ dispatch }) => {
-  let input;
+const mapDispatchToProps = (dispatch) => ({
+  addItem: (text) => dispatch(addItem(text)),
+});
 
-  return (
-    <div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (!input.value.trim()) {
-            return;
-          }
-          dispatch(addItem(input.value));
-          input.value = '';
-        }}
-      >
-        <input ref={(node) => { input = node; }} />
-        <button type="submit">Add Item</button>
-      </form>
-    </div>
-  );
-};
-
-AddItem.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-};
-
-export default connect()(AddItem);
+export default connect(null, mapDispatchToProps)(AddItem);

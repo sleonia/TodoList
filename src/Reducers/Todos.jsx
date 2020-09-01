@@ -10,7 +10,7 @@ const todos = (state = initialState, action) => {
         ...state,
         {
           id: state[state.length - 1] ? state[state.length - 1].id + 1 : 0,
-          text: action.payload.text,
+          text: action.payload,
           isCompleted: false,
         },
       ];
@@ -24,7 +24,7 @@ const todos = (state = initialState, action) => {
       return newState;
 
     case Actions.DeleteItem:
-      newState = [...state].filter((todo) => action.payload.id !== todo.id);
+      newState = [...state].filter((todo) => action.payload !== todo.id);
       return newState;
 
     case Actions.SaveItem:
