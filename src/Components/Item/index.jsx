@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import styles from './style.module.css';
-import classNames from 'classnames';
 
-const TodoItem = ({
+const Item = ({
   deleteItem, toggleItem, saveItem, isCompleted, text,
 }) => {
-  const inputStyle = classNames({
-      [styles.todoItemCompleted]: isCompleted,
-      [styles.todoItemNonCompleted]: !isCompleted,
+  const inputStyle = classnames({
+    [styles.todoItemCompleted]: isCompleted,
+    [styles.todoItemNonCompleted]: !isCompleted,
   });
 
   return (
@@ -17,16 +17,15 @@ const TodoItem = ({
         type="text"
         defaultValue={text}
         className={inputStyle}
-        onChange={(e) => {saveItem(e.target.value)}}
-      >
-      </input>
+        onChange={(e) => { saveItem(e.target.value); }}
+      />
       <button type="button" onClick={toggleItem}>Toggle</button>
       <button type="button" onClick={deleteItem}>Delete</button>
     </li>
   );
 };
 
-TodoItem.propTypes = {
+Item.propTypes = {
   deleteItem: PropTypes.func.isRequired,
   toggleItem: PropTypes.func.isRequired,
   saveItem: PropTypes.func.isRequired,
@@ -34,4 +33,4 @@ TodoItem.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
-export default TodoItem;
+export default Item;

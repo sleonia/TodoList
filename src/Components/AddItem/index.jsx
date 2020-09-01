@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const AddItem = ({ addItem }) => {
   let input;
 
   return (
-    <div>
+    <>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -18,8 +19,12 @@ const AddItem = ({ addItem }) => {
         <input ref={(node) => { input = node; }} />
         <button type="submit">Add Item</button>
       </form>
-    </div>
+    </>
   );
+};
+
+AddItem.propTypes = {
+  addItem: PropTypes.func.isRequired,
 };
 
 export default AddItem;

@@ -1,16 +1,17 @@
 import { connect } from 'react-redux';
 import {
-  deleteItem, toggleItem, saveItem, VisibilityFilters,
+  deleteItem, toggleItem, saveItem,
 } from '../Actions';
 import TodoList from '../Components/List';
+import Actions from '../Constants/ActionTypes';
 
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
-    case VisibilityFilters.ShowAll:
+    case Actions.ShowAll:
       return todos;
-    case VisibilityFilters.ShowCompleted:
+    case Actions.ShowCompleted:
       return todos.filter((t) => t.isCompleted);
-    case VisibilityFilters.ShowActive:
+    case Actions.ShowActive:
       return todos.filter((t) => !t.isCompleted);
     default:
       throw new Error('Unknown filter: '.concat(filter));

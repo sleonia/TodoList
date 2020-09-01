@@ -20,20 +20,10 @@ export const saveItem = (text, id) => ({
 
 export const setVisibilityFilter = (filter) => ({
   type: Actions.SetVisibilityFilter,
-  payload: {
-    filter,
-  },
+  payload: filter,
 });
 
 export const toggleItem = (id) => ({
   type: Actions.ToggleItem,
-  payload: {
-    id,
-  },
+  payload: id,
 });
-
-export const VisibilityFilters = {
-  ShowAll: Actions.ShowAll,
-  ShowCompleted: Actions.ShowCompleted,
-  ShowActive: Actions.ShowActive,
-};

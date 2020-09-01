@@ -3,9 +3,9 @@ import style from './style.module.css';
 
 const Header = () => {
   function getTime() {
-      const date = new Date();
-      return date.toDateString();
-  };
+    const date = new Date();
+    return date.toDateString();
+  }
 
   return (
     <header className={style.navbar}>

@@ -5,25 +5,23 @@ import styles from './style.module.css';
 
 const TodoList = ({
   todos, deleteItem, saveItem, toggleItem,
-}) => {
-  return (
-    <div className={styles.todo_list}>
-      <ul>
-        {todos.map(({id, text, isCompleted}) => (
-          <TodoItem
-            key={id}
-            isCompleted={isCompleted}
-            text={text}
-            id={id}
-            deleteItem={() => deleteItem(id)}
-            saveItem={(value) => saveItem(value, id)}
-            toggleItem={() => toggleItem(id)}
-          />
-        ))}
-      </ul>
-    </div>
-  );
-};
+}) => (
+  <div className={styles.todo_list}>
+    <ul>
+      {todos.map(({ id, text, isCompleted }) => (
+        <TodoItem
+          key={id}
+          isCompleted={isCompleted}
+          text={text}
+          id={id}
+          deleteItem={() => deleteItem(id)}
+          saveItem={(value) => saveItem(value, id)}
+          toggleItem={() => toggleItem(id)}
+        />
+      ))}
+    </ul>
+  </div>
+);
 
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(

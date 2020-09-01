@@ -16,7 +16,7 @@ const Link = ({ active, children, handleClick }) => (
 Link.propTypes = {
   active: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
-  handleClick: PropTypes.func.isRequired, //////
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default Link;

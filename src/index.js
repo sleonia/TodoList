@@ -8,7 +8,6 @@ import './index.css';
 
 const localStorageMiddleware = ({ getState }) => next => action => {
   const res = next(action);
-  console.log(getState());
   if ([action.type].includes(res.type)) {
     localStorage.setItem('data', JSON.stringify(getState().todos));
   }

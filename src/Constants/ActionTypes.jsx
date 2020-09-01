@@ -4,11 +4,11 @@ const Actions = {
   AddItem: 'AddItem',
   DeleteItem: 'DeleteItem',
   ToggleItem: 'ToggleItem',
-  SetVisibilityFilter: 'SetVisibilityFilter',
   ShowAll: 'ShowAll',
   ShowCompleted: 'ShowCompleted',
   ShowActive: 'ShowActive',
   SaveItem: 'SaveItem',
+  SetVisibilityFilter: 'SetVisibilityFilter',
 };
 
 export default Actions;

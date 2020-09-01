@@ -3,7 +3,7 @@ import Actions from '../Constants/ActionTypes';
 const initialState = JSON.parse(localStorage.getItem('data')) || [];
 
 const todos = (state = initialState, action) => {
-  let newState = null;
+  let newState;
   switch (action.type) {
     case Actions.AddItem:
       newState = [
@@ -18,7 +18,7 @@ const todos = (state = initialState, action) => {
 
     case Actions.ToggleItem:
       newState = state.map((todo) => (
-        todo.id === action.payload.id
+        todo.id === action.payload
           ? { ...todo, isCompleted: !todo.isCompleted }
           : todo));
       return newState;
