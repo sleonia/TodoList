@@ -1,17 +1,17 @@
 import Actions from '../Constants/ActionTypes';
 
 export const addItem = (text) => ({
-  type: Actions.AddItem,
+  type: Actions.ADD_ITEM,
   payload: text,
 });
 
 export const deleteItem = (id) => ({
-  type: Actions.DeleteItem,
+  type: Actions.DELETE_ITEM,
   payload: id,
 });
 
 export const saveItem = (text, id) => ({
-  type: Actions.SaveItem,
+  type: Actions.SAVE_ITEM,
   payload: {
     text,
     id,
@@ -19,11 +19,11 @@ export const saveItem = (text, id) => ({
 });
 
 export const setVisibilityFilter = (filter) => ({
-  type: Actions.SetVisibilityFilter,
+  type: Actions.SET_VISIBILITY_FILTER,
   payload: filter,
 });
 
 export const toggleItem = (id) => ({
-  type: Actions.ToggleItem,
+  type: Actions.TOGGLE_ITEM,
   payload: id,
 });

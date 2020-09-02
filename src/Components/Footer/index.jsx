@@ -6,9 +6,9 @@ import Actions from '../../Constants/ActionTypes';
 const Footer = () => (
   <div className={styles.footer}>
     <span>Show: </span>
-    <FilterLink filter={Actions.ShowAll}>All</FilterLink>
-    <FilterLink filter={Actions.ShowActive}>Active</FilterLink>
-    <FilterLink filter={Actions.ShowCompleted}>Completed</FilterLink>
+    <FilterLink filter={Actions.SHOW_ALL}>All</FilterLink>
+    <FilterLink filter={Actions.SHOW_ACTIVE}>Active</FilterLink>
+    <FilterLink filter={Actions.SHOW_COMPLETED}>Completed</FilterLink>
   </div>
 );
 

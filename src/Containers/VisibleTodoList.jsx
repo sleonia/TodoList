@@ -7,12 +7,12 @@ import Actions from '../Constants/ActionTypes';
 
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
-    case Actions.ShowAll:
+    case Actions.SHOW_ALL:
       return todos;
-    case Actions.ShowCompleted:
-      return todos.filter((t) => t.isCompleted);
-    case Actions.ShowActive:
-      return todos.filter((t) => !t.isCompleted);
+    case Actions.SHOW_COMPLETED:
+      return todos.filter((todo) => todo.isCompleted);
+    case Actions.SHOW_ACTIVE:
+      return todos.filter((todo) => !todo.isCompleted);
     default:
       throw new Error('Unknown filter: '.concat(filter));
   }

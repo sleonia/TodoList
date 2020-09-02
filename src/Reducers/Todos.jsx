@@ -5,7 +5,7 @@ const initialState = JSON.parse(localStorage.getItem('data')) || [];
 const todos = (state = initialState, action) => {
   let newState;
   switch (action.type) {
-    case Actions.AddItem:
+    case Actions.ADD_ITEM:
       newState = [
         ...state,
         {
@@ -16,18 +16,18 @@ const todos = (state = initialState, action) => {
       ];
       return newState;
 
-    case Actions.ToggleItem:
+    case Actions.TOGGLE_ITEM:
       newState = state.map((todo) => (
         todo.id === action.payload
           ? { ...todo, isCompleted: !todo.isCompleted }
           : todo));
       return newState;
 
-    case Actions.DeleteItem:
+    case Actions.DELETE_ITEM:
       newState = [...state].filter((todo) => action.payload !== todo.id);
       return newState;
 
-    case Actions.SaveItem:
+    case Actions.SAVE_ITEM:
       newState = state.map((todo) => (
         todo.id === action.payload.id
           ? { ...todo, text: action.payload.text }

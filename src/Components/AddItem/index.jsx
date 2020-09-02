@@ -1,27 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const AddItem = ({ addItem }) => {
-  let input;
+class AddItem extends React.Component {
+  constructor(props) {
+    super(props);  
+    this.state = {
+      value: '',  
+    }
+  }
 
-  return (
-    <>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (!input.value.trim()) {
-            return;
-          }
-          addItem(input.value);
-          input.value = '';
-        }}
-      >
-        <input ref={(node) => { input = node; }} />
-        <button type="submit">Add Item</button>
-      </form>
-    </>
-  );
-};
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.addItem(this.state.value);
+    this.setState({ value :  ''});
+  }
+
+  handleChange(e) {
+    this.setState({ value : e.target.value });
+  }
+
+  render () {
+    return (
+      <div>
+        <form
+          onSubmit={this.handleSubmit.bind(this)}
+        >
+          <input onChange={this.handleChange.bind(this)} value={this.state.value} />
+          <button type="submit">Add Item</button>
+        </form>
+      </div>
+    )
+  }
+}
 
 AddItem.propTypes = {
   addItem: PropTypes.func.isRequired,

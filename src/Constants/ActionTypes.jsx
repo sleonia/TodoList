@@ -1,14 +1,14 @@
 const Actions = {
-  AddList: 'AddList',
-  DeleteList: 'DeleteList',
-  AddItem: 'AddItem',
-  DeleteItem: 'DeleteItem',
-  ToggleItem: 'ToggleItem',
-  ShowAll: 'ShowAll',
-  ShowCompleted: 'ShowCompleted',
-  ShowActive: 'ShowActive',
-  SaveItem: 'SaveItem',
-  SetVisibilityFilter: 'SetVisibilityFilter',
+  ADD_LIST: 'ADD_LIST',
+  DELETE_LIST: 'DELETE_LIST',
+  ADD_ITEM: 'ADD_ITEM',
+  DELETE_ITEM: 'DELETE_ITEM',
+  TOGGLE_ITEM: 'TOGGLE_ITEM',
+  SHOW_ALL: 'SHOW_ALL',
+  SHOW_COMPLETED: 'SHOW_COMPLETED',
+  SHOW_ACTIVE: 'SHOW_ACTIVE',
+  SAVE_ITEM: 'SAVE_ITEM',
+  SET_VISIBILITY_FILTER: 'SET_VISIBILITY_FILTER',
 };
 
 export default Actions;

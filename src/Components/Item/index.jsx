@@ -6,18 +6,17 @@ import styles from './style.module.css';
 const Item = ({
   deleteItem, toggleItem, saveItem, isCompleted, text,
 }) => {
-  const inputStyle = classnames({
-    [styles.todoItemCompleted]: isCompleted,
-    [styles.todoItemNonCompleted]: !isCompleted,
-  });
+  function handleChange(e) {
+    saveItem(e.target.value);
+  }
 
   return (
     <li>
       <input
         type="text"
         defaultValue={text}
-        className={inputStyle}
-        onChange={(e) => { saveItem(e.target.value); }}
+        className={classnames({[styles.todoItemCompleted]: isCompleted})}
+        onChange={handleChange}
       />
       <button type="button" onClick={toggleItem}>Toggle</button>
       <button type="button" onClick={deleteItem}>Delete</button>
