@@ -3,15 +3,15 @@ import Actions from '../Constants/ActionTypes';
 
 describe('todos reducer', () => {
 
-beforeEach(() => {
-	localStorage.clear();
-});
+  beforeEach(() => {
+    localStorage.clear();
+  });
 
-const item = {
-  id: 0,
-  isCompleted: false,
-  text: '123',
-}
+  const item = {
+    id: 0,
+    isCompleted: false,
+    text: '123',
+  }
 
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual([])

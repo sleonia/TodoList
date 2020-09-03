@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TodoItem from '../Item';
+import Item from '../Item';
 import styles from './style.module.css';
 
-const TodoList = ({
+const List = ({
   todos, deleteItem, updateItem, toggleItem,
 }) => (
   <div className={styles.todo_list}>
     <ul>
       {todos.map(({ id, text, isCompleted }) => (
-        <TodoItem
+        <Item
           key={id}
           isCompleted={isCompleted}
           text={text}
@@ -23,7 +23,7 @@ const TodoList = ({
   </div>
 );
 
-TodoList.propTypes = {
+List.propTypes = {
   todos: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -36,4 +36,4 @@ TodoList.propTypes = {
   toggleItem: PropTypes.func.isRequired,
 };
 
-export default TodoList;
+export default List;
