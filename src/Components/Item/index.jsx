@@ -4,10 +4,10 @@ import classnames from 'classnames';
 import styles from './style.module.css';
 
 const Item = ({
-  deleteItem, toggleItem, saveItem, isCompleted, text,
+  deleteItem, toggleItem, updateItem, isCompleted, text,
 }) => {
   function handleChange(e) {
-    saveItem(e.target.value);
+    updateItem(e.target.value);
   }
 
   return (
@@ -27,7 +27,7 @@ const Item = ({
 Item.propTypes = {
   deleteItem: PropTypes.func.isRequired,
   toggleItem: PropTypes.func.isRequired,
-  saveItem: PropTypes.func.isRequired,
+  updateItem: PropTypes.func.isRequired,
   isCompleted: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired,
 };

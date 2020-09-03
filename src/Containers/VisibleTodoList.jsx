@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import {
-  deleteItem, toggleItem, saveItem,
+  deleteItem, toggleItem, updateItem,
 } from '../Actions';
 import TodoList from '../Components/List';
 import Actions from '../Constants/ActionTypes';
@@ -24,7 +24,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   deleteItem: (id) => dispatch(deleteItem(id)),
-  saveItem: (text, id) => dispatch(saveItem(text, id)),
+  updateItem: (text, id) => dispatch(updateItem(text, id)),
   toggleItem: (id) => dispatch(toggleItem(id)),
 });
 

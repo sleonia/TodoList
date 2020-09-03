@@ -16,7 +16,7 @@ const localStorageMiddleware = ({ getState }) => next => action => {
   return res;
 };
 
-const store = createStore(rootReducer, applyMiddleware(localStorageMiddleware));
+export const store = createStore(rootReducer, applyMiddleware(localStorageMiddleware));
 
 const App = () => (
   <>

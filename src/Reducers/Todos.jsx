@@ -27,7 +27,7 @@ const todos = (state = initialState, action) => {
       newState = [...state].filter((todo) => action.payload !== todo.id);
       return newState;
 
-    case Actions.SAVE_ITEM:
+    case Actions.UPDATE_ITEM:
       newState = state.map((todo) => (
         todo.id === action.payload.id
           ? { ...todo, text: action.payload.text }

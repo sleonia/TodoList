@@ -4,7 +4,7 @@ import TodoItem from '../Item';
 import styles from './style.module.css';
 
 const TodoList = ({
-  todos, deleteItem, saveItem, toggleItem,
+  todos, deleteItem, updateItem, toggleItem,
 }) => (
   <div className={styles.todo_list}>
     <ul>
@@ -15,7 +15,7 @@ const TodoList = ({
           text={text}
           id={id}
           deleteItem={() => deleteItem(id)}
-          saveItem={(value) => saveItem(value, id)}
+          updateItem={(value) => updateItem(value, id)}
           toggleItem={() => toggleItem(id)}
         />
       ))}
@@ -32,7 +32,7 @@ TodoList.propTypes = {
     }).isRequired,
   ).isRequired,
   deleteItem: PropTypes.func.isRequired,
-  saveItem: PropTypes.func.isRequired,
+  updateItem: PropTypes.func.isRequired,
   toggleItem: PropTypes.func.isRequired,
 };
 

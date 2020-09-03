@@ -10,8 +10,8 @@ export const deleteItem = (id) => ({
   payload: id,
 });
 
-export const saveItem = (text, id) => ({
-  type: Actions.SAVE_ITEM,
+export const updateItem = (text, id) => ({
+  type: Actions.UPDATE_ITEM,
   payload: {
     text,
     id,
