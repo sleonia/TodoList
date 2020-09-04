@@ -1,18 +1,4 @@
 .todoItem {
-	/* position: relative;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	padding: 30px 20px 0;
-	width: 70%;
-	border-bottom: 1px solid #cecece;
-	font-family: Roboto, sans-serif;
-	font-weight: 100;
-	font-size: 15px;
-	color: #333333;
-	border: 0;
-	max-width: 150vw;
-	min-width: 50vw; */
 	position: relative;
 	display: flex;
 	justify-content: flex-start;
@@ -27,8 +13,6 @@
 }
 
 .todoItemCompleted {
-	/* max-width: 150vw; */
-	/* min-width: 50vw; */
 	font-size: 15px;
 	font-style: italic;
 	color: #cdcdcd;

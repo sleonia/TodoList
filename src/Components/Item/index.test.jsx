@@ -14,7 +14,7 @@ const prop = {
   text: '12345',
 }
 
-describe('UpdateItem', () => {
+describe('Testing Item', () => {
   beforeEach(() => {
     localStorage.clear();
   });
@@ -25,7 +25,7 @@ describe('UpdateItem', () => {
     wrapper.find('input').simulate('change', {'target':{'value': '123'}});
   })
 
-	it('should call deleteItem', () => {
+	it('should call toggleItem', () => {
     const wrapper = shallow(<Item {...prop} />);
     wrapper.find('button').at(0).simulate('click');
   })
@@ -34,4 +34,14 @@ describe('UpdateItem', () => {
     const wrapper = shallow(<Item {...prop} />);
     wrapper.find('button').at(1).simulate('click');
   })
+
+  describe('checking classnames condition: true', () => {
+    const wrapper = shallow(<Item {...prop} />);
+    expect(wrapper.find('input').hasClass('todoItemCompleted')).toEqual(false);
+  })
+
+  describe('checking classnames condition: false', () => {
+    const wrapper = shallow(<Item {...prop} isCompleted={true} />);
+    expect(wrapper.find('input').hasClass('todoItemCompleted')).toEqual(true);
+  });
 })
