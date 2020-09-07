@@ -3,15 +3,15 @@ import {
   deleteItem, toggleItem, updateItem,
 } from '../Actions';
 import TodoList from '../Components/List';
-import Actions from '../Constants/ActionTypes';
+import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../Constants/ActionTypes';
 
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
-    case Actions.SHOW_ALL:
+    case SHOW_ALL:
       return todos;
-    case Actions.SHOW_COMPLETED:
+    case SHOW_COMPLETED:
       return todos.filter((todo) => todo.isCompleted);
-    case Actions.SHOW_ACTIVE:
+    case SHOW_ACTIVE:
       return todos.filter((todo) => !todo.isCompleted);
     default:
       throw new Error('Unknown filter: '.concat(filter));

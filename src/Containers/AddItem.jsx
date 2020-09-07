@@ -3,7 +3,7 @@ import { addItem } from '../Actions';
 import AddItem from '../Components/AddItem';
 
 const mapDispatchToProps = {
-  addItem: addItem,
+  addItem,
 };
 
 export default connect(null, mapDispatchToProps)(AddItem);

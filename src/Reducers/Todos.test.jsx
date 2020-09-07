@@ -1,5 +1,5 @@
 import reducer from './Todos';
-import Actions from '../Constants/ActionTypes';
+import { ADD_ITEM, TOGGLE_ITEM, DELETE_ITEM, UPDATE_ITEM } from '../Constants/ActionTypes';
 
 describe('todos reducer', () => {
 
@@ -20,7 +20,7 @@ describe('todos reducer', () => {
   it('should handle ADD_ITEM', () => {
     expect(
       reducer([], {
-        type: Actions.ADD_ITEM,
+        type: ADD_ITEM,
         payload: '123'
       })
     ).toEqual([item])
@@ -31,7 +31,7 @@ describe('todos reducer', () => {
           item
         ],
         {
-          type: Actions.ADD_ITEM,
+          type: ADD_ITEM,
           payload: '123'
         }
       )
@@ -48,7 +48,7 @@ describe('todos reducer', () => {
 	it('should handle TOGGLE_ITEM', () => {
     expect(
       reducer([], {
-        type: Actions.TOGGLE_ITEM,
+        type: TOGGLE_ITEM,
         payload: 0
       })
     ).toEqual([])
@@ -59,7 +59,7 @@ describe('todos reducer', () => {
           item
         ],
         {
-          type: Actions.TOGGLE_ITEM,
+          type: TOGGLE_ITEM,
           payload: 0
         }
       )
@@ -81,7 +81,7 @@ describe('todos reducer', () => {
           }
         ],
         {
-          type: Actions.TOGGLE_ITEM,
+          type: TOGGLE_ITEM,
           payload: 0
         })
     ).toEqual([
@@ -102,7 +102,7 @@ describe('todos reducer', () => {
           }
         ],
         {
-          type: Actions.TOGGLE_ITEM,
+          type: TOGGLE_ITEM,
           payload: 1
         })
     ).toEqual([
@@ -117,7 +117,7 @@ describe('todos reducer', () => {
   it('should handle DELETE_ITEM', () => {
     expect(
       reducer([], {
-        type: Actions.DELETE_ITEM,
+        type: DELETE_ITEM,
         payload: 1
       })
     ).toEqual([])
@@ -128,7 +128,7 @@ describe('todos reducer', () => {
           item
         ],
         {
-          type: Actions.DELETE_ITEM,
+          type: DELETE_ITEM,
           payload: 0
         }
       )
@@ -145,7 +145,7 @@ describe('todos reducer', () => {
           }
         ],
         {
-          type: Actions.DELETE_ITEM,
+          type: DELETE_ITEM,
           payload: 0
         }
       )
@@ -161,7 +161,7 @@ describe('todos reducer', () => {
   it('should handle UPDATE_ITEM', () => {
     expect(
       reducer([], {
-        type: Actions.UPDATE_ITEM,
+        type: UPDATE_ITEM,
         payload: {
             text: '45678',
             id: 0,
@@ -175,7 +175,7 @@ describe('todos reducer', () => {
           item
         ],
         {
-          type: Actions.UPDATE_ITEM,
+          type: UPDATE_ITEM,
           payload: {
             text: '45678',
             id: 0,

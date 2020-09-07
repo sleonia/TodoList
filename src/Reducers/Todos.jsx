@@ -1,11 +1,11 @@
-import Actions from '../Constants/ActionTypes';
+import { ADD_ITEM, TOGGLE_ITEM, DELETE_ITEM, UPDATE_ITEM } from '../Constants/ActionTypes';
 
 const initialState = JSON.parse(localStorage.getItem('data')) || [];
 
 const todos = (state = initialState, action) => {
   let newState;
   switch (action.type) {
-    case Actions.ADD_ITEM:
+    case ADD_ITEM:
       newState = [
         ...state,
         {
@@ -16,18 +16,18 @@ const todos = (state = initialState, action) => {
       ];
       return newState;
 
-    case Actions.TOGGLE_ITEM:
+    case TOGGLE_ITEM:
       newState = state.map((todo) => (
         todo.id === action.payload
           ? { ...todo, isCompleted: !todo.isCompleted }
           : todo));
       return newState;
 
-    case Actions.DELETE_ITEM:
+    case DELETE_ITEM:
       newState = [...state].filter((todo) => action.payload !== todo.id);
       return newState;
 
-    case Actions.UPDATE_ITEM:
+    case UPDATE_ITEM:
       newState = state.map((todo) => (
         todo.id === action.payload.id
           ? { ...todo, text: action.payload.text }

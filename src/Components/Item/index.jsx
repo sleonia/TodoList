@@ -15,7 +15,7 @@ const Item = ({
       <input
         type="text"
         defaultValue={text}
-        className={classnames({[styles.todoItemCompleted]: isCompleted})}
+        className={classnames(isCompleted && styles.todoItemCompleted)}
         onChange={handleChange}
       />
       <button type="button" onClick={toggleItem}>Toggle</button>

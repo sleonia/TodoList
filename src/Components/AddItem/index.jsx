@@ -7,6 +7,8 @@ class AddItem extends React.Component {
     this.state = {
       value: '',  
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleSubmit(e) {
@@ -23,9 +25,9 @@ class AddItem extends React.Component {
     return (
       <div>
         <form
-          onSubmit={this.handleSubmit.bind(this)}
+          onSubmit={this.handleSubmit}
         >
-          <input onChange={this.handleChange.bind(this)} value={this.state.value} />
+          <input onChange={this.handleChange} value={this.state.value} />
           <button type="submit">Add Item</button>
         </form>
       </div>

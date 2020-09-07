@@ -1,17 +1,17 @@
-import Actions from '../Constants/ActionTypes';
+import { ADD_ITEM, DELETE_ITEM, UPDATE_ITEM, SET_VISIBILITY_FILTER, TOGGLE_ITEM } from '../Constants/ActionTypes';
 
 export const addItem = (text) => ({
-  type: Actions.ADD_ITEM,
+  type: ADD_ITEM,
   payload: text,
 });
 
 export const deleteItem = (id) => ({
-  type: Actions.DELETE_ITEM,
+  type: DELETE_ITEM,
   payload: id,
 });
 
 export const updateItem = (text, id) => ({
-  type: Actions.UPDATE_ITEM,
+  type: UPDATE_ITEM,
   payload: {
     text,
     id,
@@ -19,11 +19,11 @@ export const updateItem = (text, id) => ({
 });
 
 export const setVisibilityFilter = (filter) => ({
-  type: Actions.SET_VISIBILITY_FILTER,
+  type: SET_VISIBILITY_FILTER,
   payload: filter,
 });
 
 export const toggleItem = (id) => ({
-  type: Actions.TOGGLE_ITEM,
+  type: TOGGLE_ITEM,
   payload: id,
 });

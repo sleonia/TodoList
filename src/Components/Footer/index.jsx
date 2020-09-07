@@ -1,14 +1,14 @@
 import React from 'react';
 import FilterLink from '../../Containers/FilterLink';
 import styles from './style.module.css';
-import Actions from '../../Constants/ActionTypes';
+import { SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED } from '../../Constants/ActionTypes';
 
 const Footer = () => (
   <div className={styles.footer}>
     <span>Show: </span>
-    <FilterLink filter={Actions.SHOW_ALL}>All</FilterLink>
-    <FilterLink filter={Actions.SHOW_ACTIVE}>Active</FilterLink>
-    <FilterLink filter={Actions.SHOW_COMPLETED}>Completed</FilterLink>
+    <FilterLink filter={SHOW_ALL}>All</FilterLink>
+    <FilterLink filter={SHOW_ACTIVE}>Active</FilterLink>
+    <FilterLink filter={SHOW_COMPLETED}>Completed</FilterLink>
   </div>
 );
 
