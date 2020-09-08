@@ -14,7 +14,7 @@ const Item = ({
     <li>
       <input
         type="text"
-        defaultValue={text}
+        value={text}
         className={classnames(isCompleted && styles.todoItemCompleted)}
         onChange={handleChange}
       />

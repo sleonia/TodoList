@@ -1,12 +1,12 @@
 import React from 'react';
 import Item from './index';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 configure({ adapter: new Adapter() })
 
-const prop = {
+let props = {
   deleteItem: jest.fn(),
   toggleItem: jest.fn(),
   updateItem: jest.fn(),
@@ -14,34 +14,28 @@ const prop = {
   text: '12345',
 }
 
-describe('Testing Item', () => {
-  beforeEach(() => {
-    localStorage.clear();
-  });
+let wrapper;
 
+beforeEach(() => {
+  localStorage.clear();
+  wrapper = shallow(<Item {...props} />);
+});
 
-	it('should call updateItem', () => {
-    const wrapper = shallow(<Item {...prop} />);
-    wrapper.find('input').simulate('change', {'target':{'value': '123'}});
-  })
+it('should call handlers', () => {
+  wrapper.find('input').simulate('change', { target: { value: '123' } });
+  expect(props.updateItem).toHaveBeenCalledTimes(1);
+  expect(wrapper.find('input').prop('value')).toBe('12345');
 
-	it('should call toggleItem', () => {
-    const wrapper = shallow(<Item {...prop} />);
-    wrapper.find('button').at(0).simulate('click');
-  })
+  wrapper.find('button').at(0).simulate('click');
+  expect(props.toggleItem).toHaveBeenCalledTimes(1);
 
-	it('should call deleteItem', () => {
-    const wrapper = shallow(<Item {...prop} />);
-    wrapper.find('button').at(1).simulate('click');
-  })
+  wrapper.find('button').at(1).simulate('click');
+  expect(props.deleteItem).toHaveBeenCalledTimes(1);
+});
 
-  describe('checking classnames condition: true', () => {
-    const wrapper = shallow(<Item {...prop} />);
-    expect(wrapper.find('input').hasClass('todoItemCompleted')).toEqual(false);
-  })
+it('checking classnames toggle', () => {
+  expect(wrapper.find('input').hasClass('todoItemCompleted')).toEqual(false);
 
-  describe('checking classnames condition: false', () => {
-    const wrapper = shallow(<Item {...prop} isCompleted={true} />);
-    expect(wrapper.find('input').hasClass('todoItemCompleted')).toEqual(true);
-  });
-})
+  wrapper = shallow(<Item {...props} isCompleted={true} />);
+  expect(wrapper.find('input').hasClass('todoItemCompleted')).toEqual(true);
+});
